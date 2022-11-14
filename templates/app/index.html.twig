@@ -6,7 +6,29 @@
 <div class="container">
 
     <h1 class="text-center mt-5">Convertisseur de devises</h1>
+    <form>
 
+        <label for="input-currency">Choisissez la devise à convertir</label>
+        <select name="input-currency" id="input-currency">
+            <option value="">Choisissez votre devise</option>
+            {% for inputKey, inputValue in datas %}
+                <option value="{{ inputKey }}">{{ inputValue }} ({{ inputKey|upper }})</option>
+            {% endfor %}
+        </select>
+
+        <label for="output-currency">Choisissez la devise finale</label>
+        <select name="output-currency" id="output-currency">
+            <option value="">Choisissez votre devise</option>
+            {% for outputKey, outputValue in datas %}
+                <option value="{{ outputKey }}">{{ outputValue }} ({{ outputKey|upper }})</option>
+            {% endfor %}
+        </select>
+
+        <input type="number" name="input-quantity" id="input-quantity"/>
+        <input type="number" name="output-quantity" id="output-quantity"/>
+
+        <button type="submit">Calcul</button>
+    </form>
 
 </div>
 {% endblock %}
