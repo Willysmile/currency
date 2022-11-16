@@ -6,16 +6,20 @@
 <div class="container">
 
     <h1 class="text-center mt-5">Convertisseur de devises</h1>
-    <form>
-
+    <form class="mt-5">
+      <div class="row text-center">
+<div class="col-5 d-block ">
         <label for="input-currency">Choisissez la devise à convertir</label>
-        <select name="input-currency" id="input-currency">
+        <select name="input-currency"  id="input-currency">
             <option value="">Choisissez votre devise</option>
             {% for inputKey, inputValue in datas %}
                 <option value="{{ inputKey }}">{{ inputValue }} ({{ inputKey|upper }})</option>
             {% endfor %}
         </select>
-
+  <label for="input-quantity"></label>
+        <input type="number" name="input-quantity" id="input-quantity"/>
+</div>
+<div class="col-5">
         <label for="output-currency">Choisissez la devise finale</label>
         <select name="output-currency" id="output-currency">
             <option value="">Choisissez votre devise</option>
@@ -24,10 +28,21 @@
             {% endfor %}
         </select>
 
-        <input type="number" name="input-quantity" id="input-quantity"/>
+
         <input type="number" name="output-quantity" id="output-quantity"/>
+</div></div>
+
+      <div class="one-currency h1 text-center">
+        <p> 1 <span id="inputText"> </span> = <span id="CalcCurrency"> </span><span id="outputText"> </span></p>
+      </div>
+
 
         <button type="submit">Calcul</button>
+
+
+
+
+
     </form>
 
 </div>
